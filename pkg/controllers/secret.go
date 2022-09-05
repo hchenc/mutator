@@ -3,7 +3,7 @@ package controllers
 import (
 	"context"
 	"github.com/hchenc/mutator/pkg/constants"
-	"github.com/hchenc/mutator/pkg/controllers/predicates"
+	filter "github.com/hchenc/mutator/pkg/controllers/predicates"
 	"github.com/hchenc/mutator/pkg/handlers"
 	"github.com/hchenc/mutator/pkg/utils/logger"
 	"github.com/sirupsen/logrus"
@@ -73,11 +73,11 @@ func (s *SecretOperatorReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&corev1.Secret{}).
 		WithEventFilter(
-			predicates.And(
-				&predicates.NamespaceUpdatePredicate{
-					IncludeNamespaces: predicates.DefaultIncludeNamespaces,
+			predicate.And(
+				&filter.NamespaceUpdatePredicate{
+					IncludeNamespaces: filter.DefaultIncludeNamespaces,
 				},
-				&predicates.UpdatePredicate{},
+				&filter.UpdatePredicate{},
 			),
 		).
 		Complete(s)

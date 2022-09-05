@@ -16,15 +16,15 @@ const (
 	KubesphereAppVersion = "app.kubernetes.io/version"
 	KubesphereAppName    = "app.kubernetes.io/name"
 
-	NginxUpstreamAnnotation = "nginx.ingress.kubernetes.io/upstream-vhost"
+	NginxUpstreamAnnotation        = "nginx.ingress.kubernetes.io/upstream-vhost"
 	NginxServiceUpstreamAnnotation = "nginx.ingress.kubernetes.io/service-upstream"
 
-	NginxSendTimeoutAnnotation = "nginx.ingress.kubernetes.io/proxy-send-timeout"
-	NginxReadTimeoutAnnotation = "nginx.ingress.kubernetes.io/proxy-read-timeout"
+	NginxSendTimeoutAnnotation    = "nginx.ingress.kubernetes.io/proxy-send-timeout"
+	NginxReadTimeoutAnnotation    = "nginx.ingress.kubernetes.io/proxy-read-timeout"
 	NginxConnectTimeoutAnnotation = "nginx.ingress.kubernetes.io/proxy-connect-timeout"
 
-	DefaultNginxSendTimeoutAnnotationValue = "5"
-	DefaultNginxReadTimeoutAnnotationValue = "5"
-	DefaultNginxConnectTimeoutAnnotationValue = "5"
+	DefaultNginxSendTimeoutAnnotationValue     = "5"
+	DefaultNginxReadTimeoutAnnotationValue     = "5"
+	DefaultNginxConnectTimeoutAnnotationValue  = "5"
 	DefaultNginxServiceUpstreamAnnotationValue = "true"
 )

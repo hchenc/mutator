@@ -142,7 +142,7 @@ func run(kubeConfig *rest.Config, ctx context.Context) {
 	servicemeshv1alpha2.AddToScheme(mgr.GetScheme())
 	application.AddToScheme(mgr.GetScheme())
 	v1.AddToScheme(mgr.GetScheme())
-	if err := (&controllers.IngressOperatorReconciler{
+	if err := (&controllers.StrategyOperatorReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 		Logger: log,

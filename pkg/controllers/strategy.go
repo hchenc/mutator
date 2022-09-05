@@ -5,7 +5,7 @@ import (
 	"github.com/hchenc/application/pkg/apis/app/v1beta1"
 	servicemeshv1alpha2 "github.com/hchenc/mutator/pkg/apis/servicemesh/v1alpha2"
 	"github.com/hchenc/mutator/pkg/constants"
-	"github.com/hchenc/mutator/pkg/controllers/predicates"
+	filter "github.com/hchenc/mutator/pkg/controllers/predicates"
 	"github.com/hchenc/mutator/pkg/utils/logger"
 	"github.com/sirupsen/logrus"
 	"k8s.io/apimachinery/pkg/api/errors"
@@ -76,9 +76,9 @@ func (s *StrategyOperatorReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&servicemeshv1alpha2.Strategy{}).
 		WithEventFilter(
-			predicates.And(
-				&predicates.NamespaceUpdatePredicate{
-					IncludeNamespaces: predicates.DefaultIncludeNamespaces,
+			predicate.And(
+				&filter.NamespaceUpdatePredicate{
+					IncludeNamespaces: filter.DefaultIncludeNamespaces,
 				},
 				&strategyUpdatePredicate{},
 			),
@@ -87,7 +87,7 @@ func (s *StrategyOperatorReconciler) SetupWithManager(mgr ctrl.Manager) error {
 }
 
 type strategyUpdatePredicate struct {
-	predicates.NamespaceUpdatePredicate
+	filter.NamespaceUpdatePredicate
 }
 
 func (s strategyUpdatePredicate) Update(e event.UpdateEvent) bool {

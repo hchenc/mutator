@@ -12,7 +12,7 @@ type IngressHandler struct {
 }
 
 func NewIngressHandler(ingress *v1.Ingress) *IngressHandler {
-	return &IngressHandler{ingress:ingress}
+	return &IngressHandler{ingress: ingress}
 }
 
 func (handler *IngressHandler) Process(f filter, annotationKey, annotationValue string) *IngressHandler {
