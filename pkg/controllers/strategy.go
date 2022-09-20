@@ -64,7 +64,7 @@ func (s *StrategyOperatorReconciler) Reconcile(ctx context.Context, req reconcil
 			log.Errorf("Update application failed for %s", err)
 		}
 
-		log.Info("Update application succeeded")
+		log.Info("Update application version succeeded")
 		return reconcile.Result{}, nil
 	} else {
 		log.Errorf("No label <%s> exists", constants.KubesphereAppName)

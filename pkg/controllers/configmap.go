@@ -62,7 +62,7 @@ func (c *ConfigMapOperatorReconciler) Reconcile(ctx context.Context, req reconci
 			if err := c.Update(ctx, &deployment, &client.UpdateOptions{FieldManager: "Reloader"}); err != nil {
 				log.Errorf("Update deployment failed for %s", err)
 			} else {
-				log.Info("Update deployment succeeded")
+				log.Info("Reload deployment succeeded")
 			}
 		}
 	}

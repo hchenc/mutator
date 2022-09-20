@@ -59,7 +59,7 @@ func (i *IngressOperatorReconciler) Reconcile(ctx context.Context, req reconcile
 			log.Errorf("Update ingress failed for %s", err)
 			return ctrl.Result{}, err
 		}
-		log.Info("Update ingress succeeded")
+		log.Info("Update ingress annotation succeeded")
 
 	}
 	return reconcile.Result{}, nil

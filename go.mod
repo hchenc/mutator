@@ -9,6 +9,7 @@ require (
 	github.com/spf13/cobra v1.2.1
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd
 	istio.io/api v0.0.0-20201113182140-d4b7e3fc2b44
+	istio.io/client-go v0.0.0-20201113183938-0734e976e785
 	k8s.io/api v0.21.2
 	k8s.io/apiextensions-apiserver v0.21.2
 	k8s.io/apimachinery v0.21.2

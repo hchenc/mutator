@@ -61,7 +61,7 @@ func (s *SecretOperatorReconciler) Reconcile(ctx context.Context, req reconcile.
 			if err := s.Update(ctx, &deployment, &client.UpdateOptions{FieldManager: "Reloader"}); err != nil {
 				log.Errorf("Update deployment failed for %s", err)
 			} else {
-				log.Info("Update deployment succeeded")
+				log.Info("Reload deployment succeeded")
 			}
 		}
 	}
